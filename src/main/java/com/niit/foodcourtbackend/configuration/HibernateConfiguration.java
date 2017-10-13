@@ -34,6 +34,7 @@ public class HibernateConfiguration {
 		return sessionFactory;
 	}
 	
+	//adding hibernate properties to session factory
 	public void getProperties()
 	{
 		Properties properties = new Properties();
