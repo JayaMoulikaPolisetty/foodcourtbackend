@@ -12,7 +12,8 @@ import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 
 @Configuration
 public class HibernateConfiguration {
-
+ 
+	//DataSource bean is created
 	@Bean
 	public DataSource datasource()
 	{
@@ -23,7 +24,7 @@ public class HibernateConfiguration {
 		datasource.setUrl("jdbc:h2:~/foodcourt");
 		return datasource;
 	}
-	
+	//localSessionFactoryBuilder is created
 	@Bean
 	public LocalSessionFactoryBuilder sessionFactory(DataSource datasource)
 	{	
