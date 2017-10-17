@@ -9,5 +9,7 @@ import com.niit.foodcourtbackend.Customer;
 public interface CustomerDao {
 
 	boolean addCustomer(Customer customer);
+	boolean deleteCustomer(Customer customer);
+	boolean updateCustomer(Customer customer);
 }
 

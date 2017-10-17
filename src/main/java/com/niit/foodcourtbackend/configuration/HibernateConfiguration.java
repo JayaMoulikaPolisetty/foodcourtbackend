@@ -26,10 +26,10 @@ public class HibernateConfiguration {
 	public DataSource getdataSource()
 	{
 		BasicDataSource datasource = new BasicDataSource();
-		datasource.setDriverClassName("org.h2.driver");
+		datasource.setDriverClassName("org.h2.Driver");
 		datasource.setUsername("sa");
 		datasource.setPassword("");
-		datasource.setUrl("jdbc:h2:~/foodcourt");
+		datasource.setUrl("jdbc:h2:tcp://localhost/~/foodcourt");
 		return datasource;
 	}
 	//localSessionFactoryBuilder is created
@@ -38,18 +38,19 @@ public class HibernateConfiguration {
 	{	
 		LocalSessionFactoryBuilder localSessionFactoryBuilder = new LocalSessionFactoryBuilder(datasource);
 		localSessionFactoryBuilder.scanPackages("com.niit.foodcourtbackend");
-		localSessionFactoryBuilder.getProperties();
+		localSessionFactoryBuilder.addProperties(getProperties());
 		return localSessionFactoryBuilder.buildSessionFactory();
 	}
 	
 	//adding hibernate properties to session factory
-	public void getProperties()
+	public Properties getProperties()
 	{
 		Properties properties = new Properties();
 		properties.put("hibernate_dialect", "org.hibernate.dialect.H2Dialect");
 		properties.put("hibernate_format_sql", "true");
 		properties.put("hibernate_show_sql", "true");
 		properties.put("hibernate.hbm2ddl.auto", "update");
+		return properties;
 	}
 	
 	@Bean

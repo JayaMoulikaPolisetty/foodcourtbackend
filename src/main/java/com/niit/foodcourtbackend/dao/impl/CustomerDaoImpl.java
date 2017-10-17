@@ -9,7 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import com.niit.foodcourtbackend.Customer;
 import com.niit.foodcourtbackend.dao.*;
 
-@Repository
+@Repository("customerDao")
 @Transactional
 public class CustomerDaoImpl implements CustomerDao{
 
@@ -29,6 +29,33 @@ public class CustomerDaoImpl implements CustomerDao{
 		return false;
 		}
 	}
+
+	@Override
+	public boolean deleteCustomer(Customer customer) {
+		try {
+			sessionFactory.getCurrentSession().remove(customer);
+			return true;
+			
+		}
+		catch(Exception e) 
+		{
+		return false;
+		}
+	}
+
+	@Override
+	public boolean updateCustomer(Customer customer) {
+		try {
+			
+			sessionFactory.getCurrentSession().update(customer);
+			return true;
+		}
+	catch(Exception e) {
+		return false;
+	}
+		
+	}
+	
 
 }
 
