@@ -2,6 +2,8 @@ package com.niit.foodcourtbackend;
 
 import static org.junit.Assert.*;
 
+import java.util.List;
+
 import org.hibernate.SessionFactory;
 import org.junit.Assert;
 import org.junit.Before;
@@ -35,12 +37,12 @@ public class CustomerTest {
 	/* @Test
 	public void test() {
 		
-		customer.setFirstName("Sai Chand");
-		customer.setLastName("Potukuchi");
-		customer.setMobile("9056731351");
-		customer.setUsername("Chandu");;
-		customer.setPassword("chandumouli");
-		customer.setComfirmPassword("chandumouli");
+		customer.setFirstName("Sravan");
+		customer.setLastName("Gangula");
+		customer.setMobile("9959645001");
+		customer.setUsername("Krish");;
+		customer.setPassword("reddy");
+		customer.setComfirmPassword("reddy");
 		
 		Assert.assertEquals("Customer added successfully", true, customerDao.addCustomer(customer) );
 	}
@@ -52,17 +54,32 @@ public class CustomerTest {
 		customerDao.deleteCustomer(customer);
 	}
 */
-	@Test
+	/*@Test
 	public void test() {
 		
-		customer.setCustId(3);
-		customer.setFirstName("chandu");
-		customer.setLastName("Potukuchi");
-		customer.setMobile("9056731351");
-		customer.setUsername("Chandu");;
-		customer.setPassword("chandumouli");
-		customer.setComfirmPassword("chandumouli");
-		customerDao.updateCustomer(customer);
-	}
+		  customer= customerDao.getCustomer(33);
+		  customer.setFirstName("Sravan Reddy");
+		  assertEquals("update successful",true,customerDao.updateCustomer(customer));
+	}*/
+	
+@Test
+	public void test() {
+		
+		 
+		List<Customer> customers = customerDao.retreiveAllCustomers();
+		for (int i = 0; i < customers.size(); i++) {
+			  Customer customer = (Customer) customers.get(i);
+				System.out.println(customer.getFirstName()+" "+customer.getLastName()+" "+customer.getMobile());
+			  }
+}
+	
+	/*@Test
+	public void test()
+	{
+		customer= customerDao.getCustomer(3);
+		System.out.println(customer.getFirstName());
+	
+	}*/
+	
 }
 
