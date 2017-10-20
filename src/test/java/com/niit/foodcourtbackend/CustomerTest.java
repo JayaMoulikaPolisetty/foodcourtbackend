@@ -62,7 +62,7 @@ public class CustomerTest {
 		  assertEquals("update successful",true,customerDao.updateCustomer(customer));
 	}*/
 	
-@Test
+/*@Test
 	public void test() {
 		
 		 
@@ -72,7 +72,7 @@ public class CustomerTest {
 				System.out.println(customer.getFirstName()+" "+customer.getLastName()+" "+customer.getMobile());
 			  }
 }
-	
+	*/
 	/*@Test
 	public void test()
 	{
